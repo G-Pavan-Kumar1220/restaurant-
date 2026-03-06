@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>FLAVORSCAPE | Modern dining experience</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + Playfair Display for professional touch -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #faf7f2;  /* soft warm white */
+      color: #2e2a28;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* color palette: deep olive, warm sand, terracotta accent, charcoal */
+    :root {
+      --primary: #3d5a3c;      /* deep organic green */
+      --primary-light: #5b7c5a;
+      --accent: #c94f4f;       /* terracotta / brick */
+      --sand: #f2e6d8;         /* background soft */
+      --paper: #ffffff;
+      --charcoal: #2e2a28;
+      --shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.05), 0 8px 15px rgba(0,0,0,0.03);
+      --border-light: #e0d6cc;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- header / nav ----- */
+    .navbar {
+      background-color: var(--paper);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-links a i {
+      margin-right: 6px;
+      color: var(--primary-light);
+    }
+
+    /* ----- hero / home section ----- */
+    .hero {
+      padding: 60px 0 40px;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1 1 300px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #4d4742;
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+    .rating-stars {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .stars i {
+      color: #d4a13e;
+      font-size: 1.3rem;
+      margin-right: 4px;
+    }
+    .rating-text {
+      background: var(--paper);
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+    }
+    .timing-chip {
+      display: inline-flex;
+      align-items: center;
+      background: var(--primary);
+      color: white;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 500;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .hero-image {
+      flex: 1 1 300px;
+      background: #d9d0c4;
+      border-radius: 40px;
+      height: 320px;
+      background: linear-gradient(145deg, #c1b4a4, #e2d8cd);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      border: 2px dashed var(--primary-light);
+    }
+    .hero-image i {
+      font-size: 5rem;
+      opacity: 0.6;
+    }
+
+    /* about section */
+    .about {
+      padding: 70px 0;
+      background: var(--paper);
+      border-radius: 50px 50px 0 0;
+    }
+    .about-grid {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .about-text {
+      flex: 2 1 300px;
+    }
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      color: #46403b;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+    .about-highlight {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    .high-item {
+      background: var(--sand);
+      border-radius: 50px;
+      padding: 8px 22px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Food section with filter */
+    .food {
+      padding: 70px 0;
+    }
+    .section-title {
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 30px;
+      margin: 40px 0 30px;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--paper);
+      padding: 16px 28px;
+      border-radius: 70px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--border-light);
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.15s;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #f4efea;
+      border-radius: 50px;
+      padding: 0 18px;
+      border: 1px solid var(--border-light);
+    }
+    .search-box i {
+      color: var(--primary-light);
+    }
+    .search-box input {
+      border: none;
+      background: transparent;
+      padding: 12px 16px;
+      font-size: 1rem;
+      min-width: 220px;
+      outline: none;
+    }
+
+    /* food grid */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 28px;
+      margin-top: 30px;
+    }
+    .food-card {
+      background: var(--paper);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.25s ease;
+      border: 1px solid var(--border-light);
+    }
+    .food-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -15px rgba(86, 70, 60, 0.2);
+    }
+    .card-img {
+      background: #cfc6bc;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 3rem;
+    }
+    .card-content {
+      padding: 20px 16px 18px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .card-header h3 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--charcoal);
+    }
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .badge.veg {
+      background: #3d9e6a;
+    }
+    .badge.nonveg {
+      background: #c94f4f;
+    }
+    .desc {
+      color: #645a52;
+      margin: 8px 0 12px;
+      font-size: 0.95rem;
+    }
+    .price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    /* map + contact section */
+    .location-contact {
+      background: var(--paper);
+      padding: 60px 0;
+      border-radius: 50px 50px 0 0;
+    }
+    .map-contact-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .map-box {
+      flex: 1 1 300px;
+      background: #ccc3b8;
+      border-radius: 40px;
+      height: 300px;
+      background: linear-gradient(135deg, #b7aa9c, #d6cbbc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      border: 1px solid #d6cdc2;
+    }
+    .map-placeholder {
+      text-align: center;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .map-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 12px;
+      opacity: 0.7;
+    }
+    .contact-details {
+      flex: 1 1 280px;
+    }
+    .contact-details h3 {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+    }
+    .contact-item i {
+      width: 48px;
+      height: 48px;
+      background: var(--sand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+    .timing-detailed {
+      background: var(--sand);
+      padding: 18px 24px;
+      border-radius: 30px;
+      margin: 30px 0;
+    }
+    .timing-detailed p {
+      display: flex;
+      gap: 20px;
+      font-weight: 500;
+    }
+
+    /* footer */
+    footer {
+      background: var(--charcoal);
+      color: #e5dbd2;
+      padding: 40px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .footer-col p {
+      margin: 18px 0;
+    }
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      font-size: 1.6rem;
+    }
+    .social-icons a {
+      color: var(--sand);
+      transition: color 0.2s;
+    }
+    .social-icons a:hover {
+      color: var(--accent);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #4a433d;
+      font-size: 0.9rem;
+    }
+
+    /* responsiveness */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 40px;
+      }
+      .search-box input {
+        width: 100%;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .map-contact-grid {
+        flex-direction: column-reverse;
+      }
+      .rating-stars {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 18px;
+      }
+      .hero-image {
+        height: 220px;
+      }
+      .food-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- header / navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">flavor<span>scape</span></div>
+      <div class="nav-links">
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#about"><i class="fas fa-leaf"></i> About</a>
+        <a href="#food"><i class="fas fa-utensils"></i> Menu</a>
+        <a href="#contact"><i class="fas fa-map-pin"></i> Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HOME section (hero) -->
+    <section id="home" class="hero container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>where flavors <span style="color: var(--accent);">bloom</span></h1>
+          <p>Modern dining with rustic soul — seasonal ingredients, bold spices, and warm hospitality.</p>
+          <div class="rating-stars">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-text">4.8 ★ (1.2k reviews)</span>
+          </div>
+          <div class="timing-chip">
+            <i class="far fa-clock"></i> OPEN TODAY · 11:30 AM – 11:00 PM
+          </div>
+        </div>
+        <div class="hero-image">
+          <i class="fas fa-utensil-spoon"></i><i class="fas fa-utensils" style="margin-left: 15px;"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT section -->
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>our story & space</h2>
+          <p>In the heart of the city, FlavorScape brings together the rustic charm of countryside dining and contemporary techniques. Every dish pays tribute to local farmers and global spices.</p>
+          <p>We believe in bold, honest food — whether you're vegan, a meat lover, or exploring new tastes.</p>
+          <div class="about-highlight">
+            <span class="high-item"><i class="far fa-clock"></i> since 2012</span>
+            <span class="high-item"><i class="fas fa-seedling"></i> organic produce</span>
+            <span class="high-item"><i class="fas fa-wine-glass-alt"></i> craft drinks</span>
+          </div>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <img src="#" alt="" style="width:100%; background:#dad1c6; height:240px; border-radius:40px; display:flex; align-items:center; justify-content:center; color:var(--primary); font-weight:600; border:2px solid white; box-shadow:var(--shadow); padding:20px; object-fit:cover;" onerror="this.style.display='flex'; this.innerHTML='<i class=\'fas fa-tree\' style=\'font-size:80px;opacity:0.5\'></i>'">
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOD section with filter & search (minimum 10 items) -->
+    <section id="food" class="food container">
+      <h2 class="section-title">our offerings</h2>
+      <!-- filter + search bar -->
+      <div class="filter-bar">
+        <div class="filter-group" id="filterGroup">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="veg">🌱 Veg</button>
+          <button class="filter-btn" data-filter="nonveg">🍗 Non‑Veg</button>
+          <button class="filter-btn" data-filter="biryani">Biryani</button>
+          <button class="filter-btn" data-filter="starter">Starters</button>
+          <button class="filter-btn" data-filter="dessert">Desserts</button>
+        </div>
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search dishes...">
+        </div>
+      </div>
+
+      <!-- dynamic food grid (10+ items) -->
+      <div class="food-grid" id="foodGrid"></div>
+    </section>
+
+    <!-- LOCATION (map) + CONTACT -->
+    <section id="contact" class="location-contact">
+      <div class="container map-contact-grid">
+        <!-- map placeholder -->
+        <div class="map-box">
+          <div class="map-placeholder">
+            <i class="fas fa-map"></i>
+            <h3>Open map</h3>
+            <p>27 Bedford St, New York, NY 10014</p>
+            <p style="margin-top:8px;"><i class="fas fa-car"></i> free parking nearby</p>
+          </div>
+        </div>
+        <!-- contact details -->
+        <div class="contact-details">
+          <h3>visit / contact</h3>
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i> <span>(212) 555‑0897</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i> <span>hello@flavorscape.nyc</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i> <span>27 Bedford St, NYC</span>
+          </div>
+          <div class="timing-detailed">
+            <p><i class="far fa-clock"></i> Mon–Thu: 11:30–22:00</p>
+            <p><i class="far fa-clock"></i> Fri–Sat: 11:30–23:30</p>
+            <p><i class="far fa-clock"></i> Sunday: 10:00–21:00 (brunch)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="color: var(--sand);">flavor<span style="color: var(--accent);">scape</span></div>
+          <p>Modern comfort, timeless taste.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <p>Home</p>
+          <p>About</p>
+          <p>Menu</p>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <p>Privacy</p>
+          <p>Terms</p>
+          <p>Accessibility</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 FlavorScape. Designed to inspire — craft your own story.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for filter and search (minimum 10 items) -->
+  <script>
+    (function() {
+      // food database (12 items > 10)
+      const menuItems = [
+        { id:1, name:'Panner Tikka', category:['veg','starter'], price:12, desc:'Smoky cottage cheese, bell peppers', veg:true },
+        { id:2, name:'Chicken 65', category:['nonveg','starter'], price:16, desc:'Spicy south indian fried chicken', veg:false },
+        { id:3, name:'Hyderabadi Biryani', category:['nonveg','biryani'], price:22, desc:'Aromatic rice + tender meat', veg:false },
+        { id:4, name:'Veg Biryani', category:['veg','biryani'], price:18, desc:'Garden vegetables & basmati', veg:true },
+        { id:5, name:'Hara Bhara Kebab', category:['veg','starter'], price:11, desc:'Spinach & peas patties', veg:true },
+        { id:6, name:'Fish Amritsari', category:['nonveg','starter'], price:19, desc:'Crispy fried sole', veg:false },
+        { id:7, name:'Gulab Jamun', category:['dessert'], price:8, desc:'Warm milk solids, rose syrup', veg:true },
+        { id:8, name:'Chocolate Mousse', category:['dessert'], price:9, desc:'Dark chocolate, sea salt', veg:true },
+        { id:9, name:'Egg Biryani', category:['nonveg','biryani'], price:16, desc:'Spiced eggs & saffron rice', veg:false },
+        { id:10, name:'Paneer Butter Masala', category:['veg','main'], price:17, desc:'Creamy tomato gravy', veg:true },
+        { id:11, name:'Tandoori Broccoli', category:['veg','starter'], price:13, desc:'Chargred broccoli, mint chutney', veg:true },
+        { id:12, name:'Kheer', category:['dessert'], price:7, desc:'Rice pudding, cardamom', veg:true },
+      ];
+
+      const foodGrid = document.getElementById('foodGrid');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const searchInput = document.getElementById('searchInput');
+      
+      let activeFilter = 'all';
+      let searchTerm = '';
+
+      function renderItems() {
+        const filtered = menuItems.filter(item => {
+          // filter by category (all / specific)
+          let matchesFilter = false;
+          if (activeFilter === 'all') matchesFilter = true;
+          else if (activeFilter === 'veg') matchesFilter = item.veg === true;
+          else if (activeFilter === 'nonveg') matchesFilter = item.veg === false;
+          else matchesFilter = item.category.includes(activeFilter); // for biryani, starter, dessert etc
+          
+          // search by name or desc
+          const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                item.desc.toLowerCase().includes(searchTerm.toLowerCase());
+          return matchesFilter && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+          foodGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; background:var(--paper); border-radius:60px;">😕 No items match — try something else</div>`;
+          return;
+        }
+
+        foodGrid.innerHTML = filtered.map(item => {
+          const vegBadge = item.veg ? '<span class="badge veg">VEG</span>' : '<span class="badge nonveg">NON‑VEG</span>';
+          return `<div class="food-card">
+            <div class="card-img"><i class="fas fa-${ item.veg ? 'carrot' : 'drumstick-bite' }"></i></div>
+            <div class="card-content">
+              <div class="card-header">
+                <h3>${item.name}</h3>
+                ${vegBadge}
+              </div>
+              <div class="desc">${item.desc}</div>
+              <span class="price">$${item.price}</span>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      // filter click
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.getAttribute('data-filter');
+          renderItems();
+        });
+      });
+
+      // search input
+      searchInput.addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        renderItems();
+      });
+
+      // initial render
+      renderItems();
+
+      // also add simple map interactive? just placeholder as requested
+    })();
+  </script>
+
+  <!-- dummy image fallback (so broken images don't appear) -->
+  <script>
+    (function fixImages() {
+      const imgs = document.querySelectorAll('img');
+      imgs.forEach(img => {
+        img.onerror = function() {
+          this.style.display = 'flex';
+          this.style.alignItems = 'center';
+          this.style.justifyContent = 'center';
+          this.style.backgroundColor = '#dad1c6';
+          this.alt = 'preview image';
+          if (!this.innerHTML) this.innerHTML = '<i class="fas fa-image" style="font-size:4rem;opacity:0.5;"></i>';
+        };
+      });
+    })();
+  </script>
+</body>
+</html>
